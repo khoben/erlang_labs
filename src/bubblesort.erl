@@ -7,7 +7,7 @@
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([sort/1]).
+-export([sort/1, maxEl/2]).
 
 
 %% ====================================================================
@@ -24,10 +24,11 @@ sort(Src, Out) -> [MaxEl | T] = maxEl(Src, []), % get the max elem value
 				  sort(T, [MaxEl | Out]).	% append max elem to `Out` and find max elem within rest elems
 
 maxEl([Max], T) -> [Max | T]; % ret max elem
-maxEl([A, B | C], T) -> if A > B -> % A -> MaxList
-							   maxEl([A | C], [B | T]);
-						   true -> % else: B -> MaxList
-							   maxEl([B | C], [A | T])
-						end.
+maxEl([A, B | C], T) -> maxEl(A, B, C, T, A > B).
+
+maxEl(A, B, C, T, true) -> maxEl([A | C], [B | T]);
+maxEl(A, B, C, T, false) -> maxEl([B | C], [A | T]).
+
+
 
 

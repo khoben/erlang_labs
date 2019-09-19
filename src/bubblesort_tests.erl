@@ -34,5 +34,9 @@ all_equal_value_test() ->
 basic_sort_test() ->
 	?assertEqual(bubblesort:sort([4, 3, 2, 1]), [1, 2, 3, 4]).
 
+max_el_test() ->
+	[MaxEl | _] = bubblesort:maxEl([1, 2, 3], []),
+	?assertEqual(MaxEl, 3).
+
 fail_sort_test() ->
 	?assertEqual(bubblesort:sort([4, 3, 2, 1]), [3, 2, 3, 4]).
