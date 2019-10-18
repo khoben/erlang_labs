@@ -1,0 +1,5 @@
+start cmd /k "erl -sname pidClient -pa ebin -eval ""task:runClientNode(2)"""
+start cmd /k "erl -sname pidTask -pa ebin -eval ""task:runTaskNode()"""
+start cmd /k "erl -sname pidChairman -pa ebin -eval ""task:runChairmanNode()"""
+start cmd /k "erl -sname pidHr -pa ebin -eval ""task:runHrNode()"""
+start cmd /k "erl -sname pidWorker -pa ebin -eval ""task:runWorkerNode()"""
